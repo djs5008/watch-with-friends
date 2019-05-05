@@ -1,0 +1,21 @@
+{
+  "name": "Watch With Friends!",
+  "version": "0.0.1",
+  "description": "Sync YouTube videos on the fly",
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": true
+  },
+  "content_scripts": [{
+    "matches": ["*://*.youtube.com/watch*", "*://*.youtu.be/watch*"],
+    "js": ["js/content.js"],
+    "css": ["styles/menu.css","styles/button.css"]
+  }],
+  "permissions": [
+    "storage",
+    "webNavigation",
+    "activeTab"
+  ],
+  "web_accessible_resources": [ "img/followers.svg" ],
+  "manifest_version": 2
+}
