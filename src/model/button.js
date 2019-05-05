@@ -32,7 +32,7 @@ export default class Button extends Stateful {
     button.setAttribute('aria-haspopup', 'true');
     button.setAttribute('aria-label', 'Watch With Friends!');
     button.setAttribute('style', `position: relative;`);
-    const followers = chrome.runtime.getURL('followers.svg');
+    const followers = chrome.runtime.getURL('/img/followers.svg');
     button.innerHTML =
       `<div style="width: 60%; height: 60%; margin: auto; background: no-repeat url(${followers}) 50%;" />`;
     return button;

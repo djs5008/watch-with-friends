@@ -2,13 +2,13 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    'js/background.js': './src/background.js',
-    'js/content.js': './src/content.js',
+    background: './src/background.js',
+    content: './src/content.js',
   },
   output: {
-    filename: '[name]',
+    filename: './js/[name].js',
     path: path.resolve(__dirname, 'out'),
-    sourceMapFilename: '[name].map'
+    sourceMapFilename: './js/[name].js.map'
   },
   devtool: 'cheap-module-source-map'
 };
