@@ -34,8 +34,8 @@ export default class Menu extends Stateful {
     const createPopup = (panel) => {
       const popup = document.createElement('div');
       popup.classList.add('ytp-popup');
+      popup.classList.add('wwf-menu');
       popup.setAttribute('data-layer', '6');
-      popup.setAttribute('style', `opacity: 0;`);
       popup.appendChild(panel);
       return popup;
     };
@@ -43,7 +43,7 @@ export default class Menu extends Stateful {
     const createPanel = (menu) => {
       const popupPanel = document.createElement('div');
       popupPanel.classList.add('ytp-panel');
-      popupPanel.setAttribute('style', `width: 90%; height: 90%; position: relative;`);
+      popupPanel.classList.add('panel');
       popupPanel.appendChild(menu);
       return popupPanel;
     };
@@ -51,8 +51,8 @@ export default class Menu extends Stateful {
     const createMenu = (title, startButton) => {
       const popupMenu = document.createElement('div');
       popupMenu.classList.add('ytp-panel-menu');
+      popupMenu.classList.add('inner');
       popupMenu.setAttribute('role', 'menu');
-      popupMenu.setAttribute('style', 'height: 90%;');
       popupMenu.appendChild(title);
       popupMenu.appendChild(startButton);
       return popupMenu;
@@ -60,7 +60,7 @@ export default class Menu extends Stateful {
 
     const createTitle = () => {
       const popupTitle = document.createElement('div');
-      popupTitle.setAttribute('style', `text-align: center; position: absolute; width: 100%;`);
+      popupTitle.classList.add('title');
       popupTitle.innerHTML = `<h2>Watch With Friends!</h2>`;
       return popupTitle;
     };
@@ -68,10 +68,10 @@ export default class Menu extends Stateful {
     const createStartButton = () => {
       const popupStartButton = document.createElement('div');
       popupStartButton.classList.add('ytp-menuitem');
+      popupStartButton.classList.add('start-button');
       popupStartButton.setAttribute('aria-haspopup', 'true');
       popupStartButton.setAttribute('role', 'menuitem');
       popupStartButton.setAttribute('tabindex', '0');
-      popupStartButton.setAttribute('style', `display: inherit; position: relative; margin: 25% auto auto;`);
       popupStartButton.onclick = this.startSession;
       popupStartButton.innerHTML = `<div class="ytp-menuitem-content">Start Session</div>`;
       return popupStartButton;
@@ -130,28 +130,11 @@ export default class Menu extends Stateful {
   renderMenu() {
     const menu = this.state.element;
 
-    let opacity = 0;
-    let pointerEvents = 'none';
-
     if (this.state.visible) {
-      opacity = 1;
-      pointerEvents = 'unset';
+      menu.classList.add('visible');
+    } else {
+      menu.classList.remove('visible');
     }
-
-    const style =
-      `
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        width: 100%; 
-        height: 100%; 
-        z-index: 50;
-        pointer-events: ${pointerEvents};
-        position: relative;
-        opacity: ${opacity};
-        transition: opacity 0.2s linear;
-      `;
-    menu.setAttribute('style', style);
   }
 
 };

@@ -28,13 +28,12 @@ export default class Button extends Stateful {
   static loadElement() {
     const button = document.createElement('button');
     button.classList.add('ytp-button');
+    button.classList.add('wwf-button');
     button.setAttribute('id', 'watch-width-friends');
     button.setAttribute('aria-haspopup', 'true');
     button.setAttribute('aria-label', 'Watch With Friends!');
-    button.setAttribute('style', `position: relative;`);
     const followers = chrome.runtime.getURL('/img/followers.svg');
-    button.innerHTML =
-      `<div style="width: 60%; height: 60%; margin: auto; background: no-repeat url(${followers}) 50%;" />`;
+    button.innerHTML = `<div class="button-icon" style="background: no-repeat url(${followers}) 50%;" />`;
     return button;
   }
 

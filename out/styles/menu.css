@@ -1,3 +1,39 @@
-.menu {
+.wwf-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    pointer-events: none;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
 
+.wwf-menu.visible {
+    opacity: 1;
+    pointer-events: inherit;
+}
+
+.wwf-menu > div.panel {
+    width: 90%;
+    height: 90%;
+    position: relative;
+}
+
+.wwf-menu > div.panel > div.inner {
+    height: 90%;
+}
+
+.wwf-menu > div.panel > div.inner > .title {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+}
+
+.wwf-menu > div.panel > div.inner > .start-button {
+    display: inherit;
+    position: relative;
+    margin: 25% auto auto;
 }
